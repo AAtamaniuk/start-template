@@ -1,0 +1,30 @@
+@import "../vars.scss";
+@import "../mixins.scss";
+
+.list-number {
+  counter-reset: li;
+  padding-left: 43px;
+  list-style: none;
+}
+
+
+.list-number__item {
+  position: relative;
+  margin: 35px 0;
+  &::before {
+    $size: 25px;
+    content:counter(li);
+    counter-increment: li;
+    position: absolute;
+    top: -1px;
+    left: -40px;
+    height: $size;
+    width: $size;
+    padding-top: 2px; //centered element number
+    background-color: $link-color;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,35 @@
+@import "vars.scss";
+
+//////////////////////////////////////////////////// Media queries ////////////////////////////////////////////////////
+
+//general
+
+@mixin breakpoint-max ($width) {
+  @media all and (max-width: $width) { @content; }
+}
+
+@mixin breakpoint-min ($width) {
+  @media all and (min-width: $width) { @content; }
+}
+
+@mixin breakpoint-only ($min-width, $max-width) {
+  @media all and (min-width: $min-width) and (max-width: $max-width) { @content; }
+}
+
+//devices
+
+@mixin mobile {
+  @include breakpoint-max ($mobile-max) { @content; }
+}
+
+@mixin desktop {
+  @include breakpoint-max ($tablet-max) { @content; }
+}
+
+@mixin laptop {
+  @include breakpoint-min ($laptop-min) { @content; }
+}
+
+@mixin tablet-only {
+  @include breakpoint-only ($tablet-min, $tablet-max) { @content }
+}
