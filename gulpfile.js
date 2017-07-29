@@ -162,4 +162,7 @@ gulp.task("symbols", function() {
     .pipe(gulp.dest("src/img"));
 });
 
-
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
